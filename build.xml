@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="projx-io/container" default="build">
+    <property name="shell" value="/usr/bin/bash"/>
+    <property name="php" value="/usr/bin/php"/>
+    <property name="curl" value="/usr/bin/curl"/>
+    <property name="pwd" value="${basedir}"/>
+    <property name="composer.phar" value="${pwd}/composer.phar"/>
+    <property name="composer" value="${composer.phar}"/>
+    <property name="phpunit" value="${pwd}/vendor/bin/phpunit"/>
+    <property name="phpunit.xml" value="${pwd}/vendor/bin/phpunit"/>
+    <property name="phpspec" value="${pwd}/vendor/bin/phpspec"/>
+    <property name="out" value="${pwd}/build"/>
+
+    <target name="build" depends="clean,install,test">
+    </target>
+
+    <target name="clean">
+        <delete dir="${out}"/>
+    </target>
+
+    <target name="install" depends="composer-install">
+    </target>
+
+    <target name="composer-available">
+        <condition property="composer-available">
+            <available file="${composer.phar}" type="file"/>
+        </condition>
+    </target>
+
+    <target name="composer-download" depends="composer-available" unless="composer-available">
+        <exec executable="${shell}">
+            <arg value="-c"/>
+            <arg value="${curl} -sS https://getcomposer.org/installer | ${php}"/>
+        </exec>
+    </target>
+
+    <target name="composer-install" depends="composer-download">
+        <exec executable="${composer}">
+            <arg value="install"/>
+            <arg value="--dev"/>
+        </exec>
+    </target>
+
+    <target name="composer-dump-autoload" depends="composer-download">
+        <exec executable="${composer}">
+            <arg value="dump-autoload"/>
+        </exec>
+    </target>
+
+    <target name="phpunit">
+        <exec executable="${phpunit}" failifexecutionfails="true" failonerror="true">
+            <arg value="--coverage-text"/>
+        </exec>
+    </target>
+
+    <target name="phpspec">
+        <exec executable="${phpspec}" failifexecutionfails="true" failonerror="true">
+            <arg value="run"/>
+            <arg value="--format"/>
+            <arg value="dot"/>
+        </exec>
+    </target>
+
+    <target name="du" depends="composer-dump-autoload"/>
+    <target name="test" depends="phpunit,phpspec"/>
+</project>

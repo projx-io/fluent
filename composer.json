@@ -1,0 +1,21 @@
+{
+  "name": "projx-io/fluent",
+  "authors": [
+    {
+      "name": "Terrence Howard",
+      "email": "chemisus@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpspec/phpspec": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "ProjxIO\\Stream\\": ["src", "generated"]
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  }
+}
