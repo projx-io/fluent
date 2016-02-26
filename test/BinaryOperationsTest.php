@@ -36,6 +36,44 @@ class BinaryOperationsTest extends PHPUnit_Framework_TestCase
             ['minus', 5, 10, 5],
             ['times', 5, 10, 50],
             ['dividedBy', 5, 10, 2],
+
+            ['and', true, true, true],
+            ['and', true, false, false],
+            ['and', false, true, false],
+            ['and', false, false, false],
+
+            ['or', true, true, true],
+            ['or', true, false, true],
+            ['or', false, true, true],
+            ['or', false, false, false],
+
+            ['instanceOf', 'null', null, true],
+            ['instanceOf', 'string', null, false],
+            ['instanceOf', 'int', null, false],
+            ['instanceOf', 'long', null, false],
+            ['instanceOf', 'double', null, false],
+            ['instanceOf', 'bool', null, false],
+            ['instanceOf', 'array', null, false],
+            ['instanceOf', 'object', null, false],
+            ['instanceOf', 'stdClass', null, false],
+
+            ['instanceOf', 'null', 'a', false],
+            ['instanceOf', 'string', 'a', true],
+            ['instanceOf', 'int', 'a', false],
+            ['instanceOf', 'long', 'a', false],
+            ['instanceOf', 'double', 'a', false],
+            ['instanceOf', 'bool', 'a', false],
+            ['instanceOf', 'array', 'a', false],
+            ['instanceOf', 'object', 'a', false],
+            ['instanceOf', 'stdClass', 'a', false],
+
+            ['instanceOf', 'int', 5, true],
+            ['instanceOf', 'long', 5, true],
+            ['instanceOf', 'double', 0.1, true],
+            ['instanceOf', 'bool', false, true],
+            ['instanceOf', 'array', [], true],
+            ['instanceOf', 'object', (object)[], true],
+            ['instanceOf', 'stdClass', (object)[], true],
         ];
     }
 
