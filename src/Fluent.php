@@ -4,6 +4,7 @@ namespace ProjxIO\Stream;
 
 use ProjxIO\Stream\Callbacks\Ands;
 use ProjxIO\Stream\Callbacks\Args;
+use ProjxIO\Stream\Callbacks\ArrayMaker;
 use ProjxIO\Stream\Callbacks\AtLeast;
 use ProjxIO\Stream\Callbacks\AtMost;
 use ProjxIO\Stream\Callbacks\ComparedTo;
@@ -31,6 +32,7 @@ use ProjxIO\Stream\Callbacks\Maps;
 use ProjxIO\Stream\Callbacks\Merge;
 use ProjxIO\Stream\Callbacks\Minus;
 use ProjxIO\Stream\Callbacks\MoreThan;
+use ProjxIO\Stream\Callbacks\Object;
 use ProjxIO\Stream\Callbacks\Ors;
 use ProjxIO\Stream\Callbacks\Plus;
 use ProjxIO\Stream\Callbacks\Rename;
@@ -163,7 +165,8 @@ class Fluent implements StaticStream
             'get' => new BindCallbackFactory(new ConstantCallbackFactory(new Get())),
             'getField' => new BindCallbackFactory(new ConstantCallbackFactory(new GetField())),
             'getElement' => new BindCallbackFactory(new ConstantCallbackFactory(new GetElement())),
-            'maps' => new BindCallbackFactory(new ConstantCallbackFactory(new Maps())),
+            'object' => new BindCallbackFactory(new ConstantCallbackFactory(new Object())),
+            'array' => new BindCallbackFactory(new ConstantCallbackFactory(new ArrayMaker())),
         ]);
     }
 

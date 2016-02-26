@@ -4,7 +4,7 @@ namespace ProjxIO\Stream\Callbacks;
 
 use ProjxIO\Stream\Method;
 
-class Maps extends Method
+class ArrayMaker extends Method
 {
     public function __invoke($callbacks = [], $value)
     {

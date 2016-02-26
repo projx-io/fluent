@@ -41,7 +41,8 @@ namespace ProjxIO\Stream;
  * @method Stream times($a = null, $b = null)
  * @method Stream dividedBy($a = null, $b = null)
  * @method Stream get($keys = [], $value)
- * @method Stream maps($callbacks = [], $value)
+ * @method Stream object($callbacks = [], $value)
+ * @method Stream array($callbacks = [], $value)
  *
  */
 interface StreamInstance

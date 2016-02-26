@@ -30,7 +30,27 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expect, $actual);
     }
 
-    public function testMaps()
+    public function testObject()
+    {
+        $items = [
+            (object)['first' => 'a', 'last' => 'b', 'colors' => ['blue', 'red']],
+            (object)['first' => 'x', 'last' => 'y', 'colors' => ['green', 'yellow', 'black']],
+        ];
+
+        $expect = [
+            (object)['name' => 'a', 'color' => 'red'],
+            (object)['name' => 'x', 'color' => 'yellow'],
+        ];
+
+        $actual = F($items)->map(F()->object([
+            'name' => F()->first,
+            'color' => F()->colors[1],
+        ]))->call();
+
+        $this->assertEquals($expect, $actual);
+    }
+
+    public function testArray()
     {
         $items = [
             (object)['first' => 'a', 'last' => 'b', 'colors' => ['blue', 'red']],
@@ -42,7 +62,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
             ['name' => 'x', 'color' => 'yellow'],
         ];
 
-        $actual = F($items)->map(F()->maps([
+        $actual = F($items)->map(F()->array([
             'name' => F()->first,
             'color' => F()->colors[1],
         ]))->call();
