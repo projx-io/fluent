@@ -11,7 +11,9 @@ class ArrayMaker extends Method
         $array = [];
 
         foreach ($callbacks as $key => $callback) {
-            $array[$key] = call_user_func($callback, $value, $key);
+            $args = array_slice(func_get_args(), 2);
+            array_unshift($args, $value, $key);
+            $array[$key] = call_user_func_array($callback, $args);
         }
 
         return $array;

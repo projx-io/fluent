@@ -13,7 +13,7 @@ if (!function_exists('fluent')) {
         $stream = Fluent::stream();
 
         if (func_num_args() > 0) {
-            $stream = $stream->thenp($stream->value(), func_get_args());
+            $stream = $stream->thenp($stream->arg(), func_get_args());
         }
 
         return $stream;
@@ -30,7 +30,7 @@ if (!function_exists('F')) {
         $stream = Fluent::stream();
 
         if (func_num_args() > 0) {
-            $stream = $stream->thenp($stream->value(), func_get_args());
+            $stream = $stream->thenp($stream->arg(), func_get_args());
         }
 
         return $stream;

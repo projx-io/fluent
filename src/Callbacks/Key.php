@@ -2,10 +2,12 @@
 
 namespace ProjxIO\Stream\Callbacks;
 
-class Key extends Arg
+use ProjxIO\Stream\Method;
+
+class Key extends Method
 {
-    public function __construct()
+    public function __invoke()
     {
-        parent::__construct(1);
+        return func_get_arg(func_num_args() - 1);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace ProjxIO\Stream;
 
+use AssertionError;
+use PHPUnit_Framework_Error_Warning;
 use PHPUnit_Framework_TestCase;
 
 class BasicTest extends PHPUnit_Framework_TestCase
@@ -12,6 +14,23 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $expect = 'c';
         $actual = F($value)->get(['a', 'b'])->call();
         $this->assertEquals($expect, $actual);
+    }
+
+    public function testAssert()
+    {
+        $value = (object)['a' => (object)['b' => 'c']];
+        $expect = 'c';
+        F($value)->a->b->assert(F()->equalTo($expect))->call();
+    }
+
+    /**
+     * @expectedException PHPUnit_Framework_Error_Warning
+     */
+    public function testAssertFailed()
+    {
+        $value = (object)['a' => (object)['b' => 'd']];
+        $expect = 'c';
+        F($value)->a->b->assert(F()->equalTo($expect))->call();
     }
 
     public function testGetField()
@@ -63,6 +82,27 @@ class BasicTest extends PHPUnit_Framework_TestCase
         ];
 
         $actual = F($items)->map(F()->array([
+            'name' => F()->first,
+            'color' => F()->colors[1],
+        ]))->call();
+
+        $this->assertEquals($expect, $actual);
+    }
+
+    public function testArrayKey()
+    {
+        $items = [
+            (object)['first' => 'a', 'last' => 'b', 'colors' => ['blue', 'red']],
+            (object)['first' => 'x', 'last' => 'y', 'colors' => ['green', 'yellow', 'black']],
+        ];
+
+        $expect = [
+            ['key' => 0, 'name' => 'a', 'color' => 'red'],
+            ['key' => 1, 'name' => 'x', 'color' => 'yellow'],
+        ];
+
+        $actual = F($items)->map(F()->array([
+            'key' => F()->key(),
             'name' => F()->first,
             'color' => F()->colors[1],
         ]))->call();

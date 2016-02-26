@@ -11,7 +11,8 @@ class Filter extends Method
         $result = [];
 
         foreach ($items as $key => $value) {
-            if (call_user_func($callback, $value, $key)) {
+            $args = array_merge(array_slice(func_get_args(), 2), [$value, $key]);
+            if (call_user_func_array($callback, $args)) {
                 $result[$key] = $value;
             }
         }

@@ -11,7 +11,8 @@ class Map extends Method
         $result = [];
 
         foreach ($items as $key => $value) {
-            $result[$key] = call_user_func($callback, $value, $key);
+            $args = array_merge(array_slice(func_get_args(), 2), [$value, $key]);
+            $result[$key] = call_user_func_array($callback, $args);
         }
 
         return $result;

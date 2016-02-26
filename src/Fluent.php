@@ -3,8 +3,10 @@
 namespace ProjxIO\Stream;
 
 use ProjxIO\Stream\Callbacks\Ands;
+use ProjxIO\Stream\Callbacks\Arg;
 use ProjxIO\Stream\Callbacks\Args;
 use ProjxIO\Stream\Callbacks\ArrayMaker;
+use ProjxIO\Stream\Callbacks\Assert;
 use ProjxIO\Stream\Callbacks\AtLeast;
 use ProjxIO\Stream\Callbacks\AtMost;
 use ProjxIO\Stream\Callbacks\ComparedTo;
@@ -161,12 +163,14 @@ class Fluent implements StaticStream
     {
         self::registerMethods([
             'with' => new BindCallbackFactory(new ConstantCallbackFactory(new With())),
+            'arg' => new BindCallbackFactory(new ConstantCallbackFactory(new Arg())),
             'args' => new BindCallbackFactory(new ConstantCallbackFactory(new Args())),
             'get' => new BindCallbackFactory(new ConstantCallbackFactory(new Get())),
             'getField' => new BindCallbackFactory(new ConstantCallbackFactory(new GetField())),
             'getElement' => new BindCallbackFactory(new ConstantCallbackFactory(new GetElement())),
             'object' => new BindCallbackFactory(new ConstantCallbackFactory(new Object())),
             'array' => new BindCallbackFactory(new ConstantCallbackFactory(new ArrayMaker())),
+            'assert' => new BindCallbackFactory(new ConstantCallbackFactory(new Assert())),
         ]);
     }
 

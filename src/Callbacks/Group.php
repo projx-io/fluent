@@ -11,7 +11,8 @@ class Group extends Method
         $groups = [];
 
         foreach ($items as $key => $value) {
-            $group = call_user_func($callback, $value, $key);
+            $args = array_merge(array_slice(func_get_args(), 2), [$value, $key]);
+            $group = call_user_func_array($callback, $args);
 
             if (!array_key_exists($group, $groups)) {
                 $groups[$group] = [];
