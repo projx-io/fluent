@@ -1,9 +1,9 @@
 <?php
 
-namespace ProjxIO\Stream\Callbacks;
+namespace ProjxIO\Fluent\Callbacks;
 
 use Exception;
-use ProjxIO\Stream\Method;
+use ProjxIO\Fluent\Method;
 
 class Value extends Method
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Stream\Callbacks;
+namespace ProjxIO\Fluent\Callbacks;
 
 class BindArray
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Stream;
+namespace ProjxIO\Fluent;
 
 /**
  * @method static Stream args(array $params = [])

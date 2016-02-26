@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Stream;
+namespace ProjxIO\Fluent;
 
 interface Stream extends Callback, StreamInstance
 {

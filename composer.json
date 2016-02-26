@@ -12,7 +12,7 @@
   },
   "autoload": {
     "psr-4": {
-      "ProjxIO\\Stream\\": ["src", "generated"]
+      "ProjxIO\\Fluent\\": ["src", "generated"]
     },
     "files": [
       "src/functions.php"

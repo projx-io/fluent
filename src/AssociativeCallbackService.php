@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Stream;
+namespace ProjxIO\Fluent;
 
 class AssociativeCallbackService implements CallbackService
 {

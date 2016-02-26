@@ -1,8 +1,8 @@
 <?php
 
-namespace ProjxIO\Stream;
+namespace ProjxIO\Fluent;
 
-use ProjxIO\Stream\Callbacks\BindArray;
+use ProjxIO\Fluent\Callbacks\BindArray;
 
 abstract class Method implements Callback
 {
@@ -24,7 +24,7 @@ abstract class Method implements Callback
     }
 
     /**
-     * @return \ProjxIO\Stream\Callback
+     * @return \ProjxIO\Fluent\Callback
      */
     public static function bind()
     {
@@ -33,7 +33,7 @@ abstract class Method implements Callback
 
     /**
      * @param array $params
-     * @return \ProjxIO\Stream\Callback
+     * @return \ProjxIO\Fluent\Callback
      */
     public static function bindp(array $params = [])
     {

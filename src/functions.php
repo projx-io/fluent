@@ -1,7 +1,7 @@
 <?php
 
-use ProjxIO\Stream\Fluent;
-use ProjxIO\Stream\Stream;
+use ProjxIO\Fluent\Fluent;
+use ProjxIO\Fluent\Stream;
 
 if (!function_exists('fluent')) {
     /**

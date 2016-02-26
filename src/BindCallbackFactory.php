@@ -1,8 +1,8 @@
 <?php
 
-namespace ProjxIO\Stream;
+namespace ProjxIO\Fluent;
 
-use ProjxIO\Stream\Callbacks\BindArray;
+use ProjxIO\Fluent\Callbacks\BindArray;
 
 class BindCallbackFactory implements CallbackFactory
 {

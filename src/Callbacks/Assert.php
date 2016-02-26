@@ -1,9 +1,9 @@
 <?php
 
-namespace ProjxIO\Stream\Callbacks;
+namespace ProjxIO\Fluent\Callbacks;
 
-use ProjxIO\Stream\AssertionException;
-use ProjxIO\Stream\Method;
+use ProjxIO\Fluent\AssertionException;
+use ProjxIO\Fluent\Method;
 
 class Assert extends Method
 {

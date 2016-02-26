@@ -1,6 +1,6 @@
 <?php
 
-namespace ProjxIO\Stream;
+namespace ProjxIO\Fluent;
 
 use PHPUnit_Framework_TestCase;
 
@@ -22,7 +22,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \ProjxIO\Stream\AssertionException
+     * @expectedException \ProjxIO\Fluent\AssertionException
      */
     public function testAssertFailed()
     {

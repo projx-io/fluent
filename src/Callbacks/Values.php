@@ -1,8 +1,8 @@
 <?php
 
-namespace ProjxIO\Stream\Callbacks;
+namespace ProjxIO\Fluent\Callbacks;
 
-use ProjxIO\Stream\Method;
+use ProjxIO\Fluent\Method;
 
 class Values extends Method
 {
