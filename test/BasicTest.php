@@ -90,13 +90,13 @@ class BasicTest extends PHPUnit_Framework_TestCase
     public function testArrayKey()
     {
         $items = [
-            (object)['first' => 'a', 'last' => 'b', 'colors' => ['blue', 'red']],
-            (object)['first' => 'x', 'last' => 'y', 'colors' => ['green', 'yellow', 'black']],
+            'p' => (object)['first' => 'a', 'last' => 'b', 'colors' => ['blue', 'red']],
+            'q' => (object)['first' => 'x', 'last' => 'y', 'colors' => ['green', 'yellow', 'black']],
         ];
 
         $expect = [
-            ['key' => 0, 'name' => 'a', 'color' => 'red'],
-            ['key' => 1, 'name' => 'x', 'color' => 'yellow'],
+            'p' => ['key' => 'p', 'name' => 'a', 'color' => 'red'],
+            'q' => ['key' => 'q', 'name' => 'x', 'color' => 'yellow'],
         ];
 
         $actual = F($items)->map(F()->array([
