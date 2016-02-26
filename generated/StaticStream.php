@@ -55,6 +55,7 @@ namespace ProjxIO\Fluent;
  * @method static Stream array($callbacks = [], $value)
  * @method static Stream switch (callable $callback, callable[] $cases = [])
  * @method static Stream if (callable $condition, callable $true, callable $false)
+ * @method static Stream regex($pattern = null, $subject = null)
  */
 interface StaticStream
 {

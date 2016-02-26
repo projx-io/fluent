@@ -42,6 +42,7 @@ use ProjxIO\Fluent\Callbacks\Object;
 use ProjxIO\Fluent\Callbacks\OrMaker;
 use ProjxIO\Fluent\Callbacks\Ors;
 use ProjxIO\Fluent\Callbacks\Plus;
+use ProjxIO\Fluent\Callbacks\Regex;
 use ProjxIO\Fluent\Callbacks\Rename;
 use ProjxIO\Fluent\Callbacks\Reverse;
 use ProjxIO\Fluent\Callbacks\Sort;
@@ -135,8 +136,6 @@ class Fluent implements StaticStream
             'union' => new BindCallbackFactory(new ConstantCallbackFactory(new Union())),
             'merge' => new BindCallbackFactory(new ConstantCallbackFactory(new Merge())),
             'length' => new BindCallbackFactory(new ConstantCallbackFactory(new Length())),
-            'implode' => new BindCallbackFactory(new ConstantCallbackFactory(new Implode())),
-            'explode' => new BindCallbackFactory(new ConstantCallbackFactory(new Explode())),
             'keyOf' => new BindCallbackFactory(new ConstantCallbackFactory(new KeyOf())),
             'valueOf' => new BindCallbackFactory(new ConstantCallbackFactory(new ValueOf())),
         ]);
@@ -202,10 +201,20 @@ class Fluent implements StaticStream
         ]);
     }
 
+    public static function registerStringMethods()
+    {
+        self::registerMethods([
+            'regex' => new BindCallbackFactory(new ConstantCallbackFactory(new Regex())),
+            'implode' => new BindCallbackFactory(new ConstantCallbackFactory(new Implode())),
+            'explode' => new BindCallbackFactory(new ConstantCallbackFactory(new Explode())),
+        ]);
+    }
+
     public static function register()
     {
         self::registerBasicMethods();
         self::registerMathMethods();
+        self::registerStringMethods();
         self::registerComparisonMethods();
         self::registerArrayMethods();
         self::registerCollectionMethods();
