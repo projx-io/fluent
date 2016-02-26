@@ -81,7 +81,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $expect = ['a', 'b', 'c', 'x', 'y', 'z'];
         $actual = fluent()
             ->sort(F::comparedTo())
-            ->values
+            ->values()
             ->call($items);
         $this->assertEquals($expect, $actual);
     }
@@ -91,8 +91,8 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $items = ['y', 'z', 'a', 'c', 'x', 'b'];
         $expect = ['b', 'x', 'c', 'a', 'z', 'y'];
         $actual = fluent()
-            ->reverse
-            ->values
+            ->reverse()
+            ->values()
             ->call($items);
         $this->assertEquals($expect, $actual);
     }
@@ -102,8 +102,8 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $items = ['a', 'b', 'a', 'c', 'a'];
         $expect = ['a', 'b', 'c'];
         $actual = fluent()
-            ->unique
-            ->values
+            ->unique()
+            ->values()
             ->call($items);
         $this->assertEquals($expect, $actual);
     }
@@ -115,7 +115,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $expect = ['b', 'f'];
         $actual = fluent()
             ->intersect($b)
-            ->values
+            ->values()
             ->call($a);
         $this->assertEquals($expect, $actual);
     }
@@ -127,7 +127,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $expect = ['a', 'c'];
         $actual = fluent()
             ->diff($b)
-            ->values
+            ->values()
             ->call($a);
         $this->assertEquals($expect, $actual);
     }
@@ -139,7 +139,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $expect = ['a', 'b', 'c', 'f', 'd', 'e'];
         $actual = fluent()
             ->union($b)
-            ->values
+            ->values()
             ->call($a);
         $this->assertEquals($expect, $actual);
     }
@@ -151,7 +151,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $expect = ['a', 'b', 'c', 'f', 'f', 'b', 'd', 'e'];
         $actual = fluent()
             ->merge($b)
-            ->values
+            ->values()
             ->call($a);
         $this->assertEquals($expect, $actual);
     }
@@ -161,7 +161,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $a = ['a', 'b', 'c', 'f'];
         $expect = 4;
         $actual = fluent()
-            ->length
+            ->length()
             ->call($a);
         $this->assertEquals($expect, $actual);
     }

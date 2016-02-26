@@ -40,44 +40,9 @@ namespace ProjxIO\Stream;
  * @method Stream minus($a = null, $b = null)
  * @method Stream times($a = null, $b = null)
  * @method Stream dividedBy($a = null, $b = null)
+ * @method Stream get($keys = [], $value)
+ * @method Stream maps($callbacks = [], $value)
  *
- * @property Stream args
- * @property Stream with
- * @property Stream comparedTo
- * @property Stream equalTo
- * @property Stream moreThan
- * @property Stream lessThan
- * @property Stream atLeast
- * @property Stream atMost
- * @property Stream ands
- * @property Stream ors
- * @property Stream key
- * @property Stream value
- * @property Stream increment
- * @property Stream decrement
- * @property Stream keys
- * @property Stream values
- * @property Stream reverse
- * @property Stream unique
- * @property Stream intersect
- * @property Stream diff
- * @property Stream union
- * @property Stream merge
- * @property Stream length
- * @property Stream implode
- * @property Stream explode
- * @property Stream each
- * @property Stream map
- * @property Stream filter
- * @property Stream rename
- * @property Stream group
- * @property Stream sort
- * @property Stream keyOf
- * @property Stream valueOf
- * @property Stream plus
- * @property Stream minus
- * @property Stream times
- * @property Stream dividedBy
  */
 interface StreamInstance
 {

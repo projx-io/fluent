@@ -40,6 +40,8 @@ namespace ProjxIO\Stream;
  * @method static Stream minus($a = null, $b = null)
  * @method static Stream times($a = null, $b = null)
  * @method static Stream dividedBy($a = null, $b = null)
+ * @method static Stream get($keys = [], $value)
+ * @method static Stream maps($callbacks = [], $value)
  */
 interface StaticStream
 {

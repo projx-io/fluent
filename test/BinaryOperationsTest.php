@@ -48,7 +48,7 @@ class BinaryOperationsTest extends PHPUnit_Framework_TestCase
      */
     public function test_withCall($key, $expect, $actual, $result)
     {
-        $this->assertEquals($result, fluent($actual)->__call($key, [$expect])->call());
+        $this->assertEquals($result, F($actual)->__call($key, [$expect])->call());
     }
 
     /**
@@ -94,21 +94,9 @@ class BinaryOperationsTest extends PHPUnit_Framework_TestCase
      * @param $result
      * @dataProvider dataProvider
      */
-    public function test__getCall($key, $expect, $actual, $result)
-    {
-        $this->assertEquals($result, F()->__get($key)->call($expect, $actual));
-    }
-
-    /**
-     * @param $key
-     * @param $expect
-     * @param $actual
-     * @param $result
-     * @dataProvider dataProvider
-     */
     public function test_with_call($key, $expect, $actual, $result)
     {
-        $this->assertEquals($result, fluent($actual)->__call($key, [$expect])->apply());
+        $this->assertEquals($result, F($actual)->__call($key, [$expect])->apply());
     }
 
     /**
@@ -145,17 +133,5 @@ class BinaryOperationsTest extends PHPUnit_Framework_TestCase
     public function test__call0Apply($key, $expect, $actual, $result)
     {
         $this->assertEquals($result, F()->__call($key, [])->apply([$expect, $actual]));
-    }
-
-    /**
-     * @param $key
-     * @param $expect
-     * @param $actual
-     * @param $result
-     * @dataProvider dataProvider
-     */
-    public function test__getApply($key, $expect, $actual, $result)
-    {
-        $this->assertEquals($result, F()->__get($key)->apply([$expect, $actual]));
     }
 }

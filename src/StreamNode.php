@@ -4,7 +4,7 @@ namespace ProjxIO\Stream;
 
 use ProjxIO\Stream\Callbacks\BindArray;
 
-class StreamNode implements Stream
+class StreamNode implements Stream, \ArrayAccess
 {
     /**
      * @var CallbackService
@@ -34,9 +34,40 @@ class StreamNode implements Stream
         $this->parent = $parent;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function offsetExists($offset)
+    {
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function offsetGet($key)
+    {
+        return $this->callbackService->next($this, 'getElement', [$key]);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function offsetSet($offset, $value)
+    {
+
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function offsetUnset($offset)
+    {
+
+    }
+
     public function __get($key)
     {
-        return $this->callbackService->next($this, $key, []);
+        return $this->callbackService->next($this, 'getField', [$key]);
     }
 
     /**
@@ -121,6 +152,16 @@ class StreamNode implements Stream
             $child = $child->parent();
         }
         return $callbacks;
+    }
+
+    /**
+     * @param mixed $field
+     * @return Stream
+     */
+    public function set(&$field)
+    {
+        $args = array_merge([&$field], array_slice(func_get_args(), 1));
+        return $this->callbackService->next($this, __FUNCTION__, $args);
     }
 
     /**

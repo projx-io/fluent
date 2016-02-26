@@ -9,6 +9,9 @@ use ProjxIO\Stream\Callbacks\AtMost;
 use ProjxIO\Stream\Callbacks\ComparedTo;
 use ProjxIO\Stream\Callbacks\DividedBy;
 use ProjxIO\Stream\Callbacks\Explode;
+use ProjxIO\Stream\Callbacks\Get;
+use ProjxIO\Stream\Callbacks\GetElement;
+use ProjxIO\Stream\Callbacks\GetField;
 use ProjxIO\Stream\Callbacks\Implode;
 use ProjxIO\Stream\Callbacks\KeyOf;
 use ProjxIO\Stream\Callbacks\Length;
@@ -24,6 +27,7 @@ use ProjxIO\Stream\Callbacks\Key;
 use ProjxIO\Stream\Callbacks\Keys;
 use ProjxIO\Stream\Callbacks\LessThan;
 use ProjxIO\Stream\Callbacks\Map;
+use ProjxIO\Stream\Callbacks\Maps;
 use ProjxIO\Stream\Callbacks\Merge;
 use ProjxIO\Stream\Callbacks\Minus;
 use ProjxIO\Stream\Callbacks\MoreThan;
@@ -31,6 +35,7 @@ use ProjxIO\Stream\Callbacks\Ors;
 use ProjxIO\Stream\Callbacks\Plus;
 use ProjxIO\Stream\Callbacks\Rename;
 use ProjxIO\Stream\Callbacks\Reverse;
+use ProjxIO\Stream\Callbacks\Set;
 use ProjxIO\Stream\Callbacks\Sort;
 use ProjxIO\Stream\Callbacks\Times;
 use ProjxIO\Stream\Callbacks\Union;
@@ -155,6 +160,10 @@ class Fluent implements StaticStream
         self::registerMethods([
             'with' => new BindCallbackFactory(new ConstantCallbackFactory(new With())),
             'args' => new BindCallbackFactory(new ConstantCallbackFactory(new Args())),
+            'get' => new BindCallbackFactory(new ConstantCallbackFactory(new Get())),
+            'getField' => new BindCallbackFactory(new ConstantCallbackFactory(new GetField())),
+            'getElement' => new BindCallbackFactory(new ConstantCallbackFactory(new GetElement())),
+            'maps' => new BindCallbackFactory(new ConstantCallbackFactory(new Maps())),
         ]);
     }
 
