@@ -11,12 +11,16 @@ namespace ProjxIO\Fluent;
  * @method static Stream lessThan($expect = null, $actual = null)
  * @method static Stream atLeast($expect = null, $actual = null)
  * @method static Stream atMost($expect = null, $actual = null)
+ * @method static Stream and ($expect = null, $actual = null)
+ * @method static Stream or ($expect = null, $actual = null)
+ * @method static Stream instanceOf ($type = null, $value = null)
+ * @method static Stream not($value = null)
  * @method static Stream ands($callbacks = [])
  * @method static Stream ors($callbacks = [])
  * @method static Stream key($value = null, $key = null)
  * @method static Stream value($value = null, $key = null)
  * @method static Stream increment(&$field)
- * @method static Stream decrement(&$value)
+ * @method static Stream decrement(&$field)
  * @method static Stream keys()
  * @method static Stream values()
  * @method static Stream reverse()
@@ -43,6 +47,8 @@ namespace ProjxIO\Fluent;
  * @method static Stream get($keys = [], $value)
  * @method static Stream object($callbacks = [], $value)
  * @method static Stream array($callbacks = [], $value)
+ * @method static Stream switch (callable $callback, callable[] $cases = [])
+ * @method static Stream if (callable $condition, callable $true, callable $false)
  */
 interface StaticStream
 {

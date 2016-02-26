@@ -2,6 +2,7 @@
 
 namespace ProjxIO\Fluent;
 
+use ProjxIO\Fluent\Callbacks\AndMaker;
 use ProjxIO\Fluent\Callbacks\Ands;
 use ProjxIO\Fluent\Callbacks\Arg;
 use ProjxIO\Fluent\Callbacks\Args;
@@ -21,8 +22,10 @@ use ProjxIO\Fluent\Callbacks\Get;
 use ProjxIO\Fluent\Callbacks\GetElement;
 use ProjxIO\Fluent\Callbacks\GetField;
 use ProjxIO\Fluent\Callbacks\Group;
+use ProjxIO\Fluent\Callbacks\IfMaker;
 use ProjxIO\Fluent\Callbacks\Implode;
 use ProjxIO\Fluent\Callbacks\Increment;
+use ProjxIO\Fluent\Callbacks\InstanceOfMethod;
 use ProjxIO\Fluent\Callbacks\Intersect;
 use ProjxIO\Fluent\Callbacks\Key;
 use ProjxIO\Fluent\Callbacks\KeyOf;
@@ -30,17 +33,18 @@ use ProjxIO\Fluent\Callbacks\Keys;
 use ProjxIO\Fluent\Callbacks\Length;
 use ProjxIO\Fluent\Callbacks\LessThan;
 use ProjxIO\Fluent\Callbacks\Map;
-use ProjxIO\Fluent\Callbacks\Maps;
 use ProjxIO\Fluent\Callbacks\Merge;
 use ProjxIO\Fluent\Callbacks\Minus;
 use ProjxIO\Fluent\Callbacks\MoreThan;
+use ProjxIO\Fluent\Callbacks\Not;
 use ProjxIO\Fluent\Callbacks\Object;
+use ProjxIO\Fluent\Callbacks\OrMaker;
 use ProjxIO\Fluent\Callbacks\Ors;
 use ProjxIO\Fluent\Callbacks\Plus;
 use ProjxIO\Fluent\Callbacks\Rename;
 use ProjxIO\Fluent\Callbacks\Reverse;
-use ProjxIO\Fluent\Callbacks\Set;
 use ProjxIO\Fluent\Callbacks\Sort;
+use ProjxIO\Fluent\Callbacks\SwitchCase;
 use ProjxIO\Fluent\Callbacks\Times;
 use ProjxIO\Fluent\Callbacks\Union;
 use ProjxIO\Fluent\Callbacks\Unique;
@@ -109,6 +113,7 @@ class Fluent implements StaticStream
             'lessThan' => new BindCallbackFactory(new ConstantCallbackFactory(new LessThan())),
             'atLeast' => new BindCallbackFactory(new ConstantCallbackFactory(new AtLeast())),
             'atMost' => new BindCallbackFactory(new ConstantCallbackFactory(new AtMost())),
+            'instanceOf' => new BindCallbackFactory(new ConstantCallbackFactory(new InstanceOfMethod())),
         ]);
     }
 
@@ -146,7 +151,10 @@ class Fluent implements StaticStream
     public static function registerLogicMethods()
     {
         self::registerMethods([
+            'not' => new BindCallbackFactory(new ConstantCallbackFactory(new Not())),
             'ands' => new BindCallbackFactory(new ConstantCallbackFactory(new Ands())),
+            'and' => new BindCallbackFactory(new ConstantCallbackFactory(new AndMaker())),
+            'or' => new BindCallbackFactory(new ConstantCallbackFactory(new OrMaker())),
             'ors' => new BindCallbackFactory(new ConstantCallbackFactory(new Ors())),
         ]);
     }
@@ -174,6 +182,14 @@ class Fluent implements StaticStream
         ]);
     }
 
+    public static function registerFlowMethods()
+    {
+        self::registerMethods([
+            'switch' => new BindCallbackFactory(new ConstantCallbackFactory(new SwitchCase())),
+            'if' => new BindCallbackFactory(new ConstantCallbackFactory(new IfMaker())),
+        ]);
+    }
+
     public static function register()
     {
         self::registerBasicMethods();
@@ -184,6 +200,7 @@ class Fluent implements StaticStream
         self::registerLogicMethods();
         self::registerIterationMethods();
         self::registerBasicMethods();
+        self::registerFlowMethods();
     }
 
     /**

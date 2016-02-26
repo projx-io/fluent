@@ -11,6 +11,10 @@ namespace ProjxIO\Fluent;
  * @method Stream lessThan($expect = null, $actual = null)
  * @method Stream atLeast($expect = null, $actual = null)
  * @method Stream atMost($expect = null, $actual = null)
+ * @method Stream and ($expect = null, $actual = null)
+ * @method Stream or ($expect = null, $actual = null)
+ * @method Stream instanceOf ($type = null, $value = null)
+ * @method Stream not($value = null)
  * @method Stream ands($callbacks = [])
  * @method Stream ors($callbacks = [])
  * @method Stream key($value = null, $key = null)
@@ -43,6 +47,8 @@ namespace ProjxIO\Fluent;
  * @method Stream get($keys = [], $value)
  * @method Stream object($callbacks = [], $value)
  * @method Stream array($callbacks = [], $value)
+ * @method Stream switch (callable $callback, callable[] $cases = [])
+ * @method Stream if (callable $condition, callable $true, callable $false)
  *
  */
 interface StreamInstance
