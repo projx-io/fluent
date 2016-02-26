@@ -2,8 +2,6 @@
 
 namespace ProjxIO\Stream;
 
-use AssertionError;
-use PHPUnit_Framework_Error_Warning;
 use PHPUnit_Framework_TestCase;
 
 class BasicTest extends PHPUnit_Framework_TestCase
@@ -24,7 +22,7 @@ class BasicTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PHPUnit_Framework_Error_Warning
+     * @expectedException \ProjxIO\Stream\AssertionException
      */
     public function testAssertFailed()
     {
