@@ -22,6 +22,7 @@ use ProjxIO\Fluent\Callbacks\Get;
 use ProjxIO\Fluent\Callbacks\GetElement;
 use ProjxIO\Fluent\Callbacks\GetField;
 use ProjxIO\Fluent\Callbacks\Group;
+use ProjxIO\Fluent\Callbacks\Has;
 use ProjxIO\Fluent\Callbacks\IfMaker;
 use ProjxIO\Fluent\Callbacks\Implode;
 use ProjxIO\Fluent\Callbacks\Increment;
@@ -46,6 +47,11 @@ use ProjxIO\Fluent\Callbacks\Reverse;
 use ProjxIO\Fluent\Callbacks\Sort;
 use ProjxIO\Fluent\Callbacks\SwitchCase;
 use ProjxIO\Fluent\Callbacks\Times;
+use ProjxIO\Fluent\Callbacks\ToArray;
+use ProjxIO\Fluent\Callbacks\ToBoolean;
+use ProjxIO\Fluent\Callbacks\ToInteger;
+use ProjxIO\Fluent\Callbacks\ToObject;
+use ProjxIO\Fluent\Callbacks\ToString;
 use ProjxIO\Fluent\Callbacks\Union;
 use ProjxIO\Fluent\Callbacks\Unique;
 use ProjxIO\Fluent\Callbacks\Value;
@@ -173,6 +179,12 @@ class Fluent implements StaticStream
             'with' => new BindCallbackFactory(new ConstantCallbackFactory(new With())),
             'arg' => new BindCallbackFactory(new ConstantCallbackFactory(new Arg())),
             'args' => new BindCallbackFactory(new ConstantCallbackFactory(new Args())),
+            'toArray' => new BindCallbackFactory(new ConstantCallbackFactory(new ToArray())),
+            'toBoolean' => new BindCallbackFactory(new ConstantCallbackFactory(new ToBoolean())),
+            'toInteger' => new BindCallbackFactory(new ConstantCallbackFactory(new ToInteger())),
+            'toObject' => new BindCallbackFactory(new ConstantCallbackFactory(new ToObject())),
+            'toString' => new BindCallbackFactory(new ConstantCallbackFactory(new ToString())),
+            'has' => new BindCallbackFactory(new ConstantCallbackFactory(new Has())),
             'get' => new BindCallbackFactory(new ConstantCallbackFactory(new Get())),
             'getField' => new BindCallbackFactory(new ConstantCallbackFactory(new GetField())),
             'getElement' => new BindCallbackFactory(new ConstantCallbackFactory(new GetElement())),

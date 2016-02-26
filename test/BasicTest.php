@@ -6,12 +6,99 @@ use PHPUnit_Framework_TestCase;
 
 class BasicTest extends PHPUnit_Framework_TestCase
 {
+    public function testHasNone()
+    {
+        $value = ['a' => ['b' => 'c']];
+        $actual = F($value)->has([])->call();
+        $this->assertTrue($actual);
+    }
+
+    public function testHasInArray()
+    {
+        $value = ['a' => ['b' => 'c']];
+        $actual = F($value)->has('a')->call();
+        $this->assertTrue($actual);
+    }
+
+    public function testDoesNotHaveInArray()
+    {
+        $value = ['a' => ['b' => 'c']];
+        $actual = F($value)->has('b')->call();
+        $this->assertFalse($actual);
+    }
+
+    public function testHasInObject()
+    {
+        $value = (object)['a' => ['b' => 'c']];
+        $actual = F($value)->has('a')->call();
+        $this->assertTrue($actual);
+    }
+
+    public function testDoesNotHaveInObject()
+    {
+        $value = (object)['a' => ['b' => 'c']];
+        $actual = F($value)->has('b')->call();
+        $this->assertFalse($actual);
+    }
+
+    public function testDoesHasWithoutContainer()
+    {
+        $value = 5;
+        $actual = F($value)->has('b')->call();
+        $this->assertFalse($actual);
+    }
+
     public function testGet()
     {
         $value = ['a' => ['b' => 'c']];
         $expect = 'c';
         $actual = F($value)->get(['a', 'b'])->call();
         $this->assertEquals($expect, $actual);
+    }
+
+    public function testToString()
+    {
+        $value = 404;
+        $expect = '404';
+        $actual = F($value)->toString()->call();
+        $this->assertEquals($expect, $actual);
+        $this->assertInternalType('string', $actual);
+    }
+
+    public function testToInteger()
+    {
+        $value = '404';
+        $expect = 404;
+        $actual = F($value)->toInteger()->call();
+        $this->assertEquals($expect, $actual);
+        $this->assertInternalType('integer', $actual);
+    }
+
+    public function testToObject()
+    {
+        $value = ['a' => 'b'];
+        $expect = (object)$value;
+        $actual = F($value)->toObject()->call();
+        $this->assertEquals($expect, $actual);
+        $this->assertInternalType('object', $actual);
+    }
+
+    public function testToArray()
+    {
+        $value = (object)['a' => 'b'];
+        $expect = (array)$value;
+        $actual = F($value)->toArray()->call();
+        $this->assertEquals($expect, $actual);
+        $this->assertInternalType('array', $actual);
+    }
+
+    public function testToBoolean()
+    {
+        $value = 5;
+        $expect = true;
+        $actual = F($value)->toBoolean()->call();
+        $this->assertEquals($expect, $actual);
+        $this->assertInternalType('boolean', $actual);
     }
 
     public function testAssert()
