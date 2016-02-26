@@ -2,7 +2,6 @@
 
 namespace ProjxIO\Fluent\Callbacks;
 
-use Exception;
 use ProjxIO\Fluent\Method;
 
 class Pass extends Method
