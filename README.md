@@ -1,11 +1,11 @@
 
 # Fluent
 
-## Installation
+### Installation
 
 `composer require projx-io/fluent`
 
-## Hello World
+### Hello World
 
 ```php
 $greet = function ($greeting, $name) {
