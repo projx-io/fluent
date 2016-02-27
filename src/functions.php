@@ -36,7 +36,7 @@ if (!function_exists('fluentp')) {
     }
 }
 
-// &...$params is not supported php version<5.6
+// &...$params is not supported php version<5.6 or hhvm
 //if (!function_exists('rfluent')) {
 //    /**
 //     * @param array ...$params
@@ -87,7 +87,7 @@ if (!function_exists('fp')) {
     }
 }
 
-// &...$params is not supported php version<5.6
+// &...$params is not supported php version<5.6 or hhvm
 //if (!function_exists('rf')) {
 //    /**
 //     * @param array ...$params
