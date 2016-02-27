@@ -36,16 +36,17 @@ if (!function_exists('fluentp')) {
     }
 }
 
-if (!function_exists('rfluent')) {
-    /**
-     * @param array ...$params
-     * @return Stream
-     */
-    function rfluent(&...$params)
-    {
-        return rfluentp($params);
-    }
-}
+// &...$params is not supported php version<5.6
+//if (!function_exists('rfluent')) {
+//    /**
+//     * @param array ...$params
+//     * @return Stream
+//     */
+//    function rfluent(&...$params)
+//    {
+//        return rfluentp($params);
+//    }
+//}
 
 if (!function_exists('rfluentp')) {
     /**
@@ -86,16 +87,17 @@ if (!function_exists('fp')) {
     }
 }
 
-if (!function_exists('rf')) {
-    /**
-     * @param array ...$params
-     * @return Stream
-     */
-    function rf(&... $params)
-    {
-        return rfluentp($params);
-    }
-}
+// &...$params is not supported php version<5.6
+//if (!function_exists('rf')) {
+//    /**
+//     * @param array ...$params
+//     * @return Stream
+//     */
+//    function rf(&... $params)
+//    {
+//        return rfluentp($params);
+//    }
+//}
 
 if (!function_exists('rfp')) {
     /**
