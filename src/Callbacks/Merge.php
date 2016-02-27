@@ -6,8 +6,8 @@ use ProjxIO\Fluent\Method;
 
 class Merge extends Method
 {
-    public function __invoke()
+    public function __invoke(... $params)
     {
-        return call_user_func_array('array_merge', array_reverse(func_get_args()));
+        return call_user_func_array('array_merge', array_reverse($params));
     }
 }

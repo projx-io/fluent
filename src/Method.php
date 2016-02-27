@@ -7,11 +7,12 @@ use ProjxIO\Fluent\Callbacks\BindArray;
 abstract class Method implements Callback
 {
     /**
+     * @param array ...$params
      * @return mixed
      */
-    public static function exec()
+    public static function exec(... $params)
     {
-        return static::execp(func_get_args());
+        return static::execp($params);
     }
 
     /**
@@ -24,11 +25,12 @@ abstract class Method implements Callback
     }
 
     /**
+     * @param array ...$params
      * @return \ProjxIO\Fluent\Callback
      */
-    public static function bind()
+    public static function bind(... $params)
     {
-        return new BindArray(new static(), func_get_args());
+        return new BindArray(new static(), $params);
     }
 
     /**
@@ -43,9 +45,9 @@ abstract class Method implements Callback
     /**
      * @inheritDoc
      */
-    public function call($param1 = null, $param2 = null)
+    public function call(... $params)
     {
-        return call_user_func_array($this, func_get_args());
+        return call_user_func_array($this, $params);
     }
 
     /**

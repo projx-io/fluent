@@ -6,12 +6,12 @@ use ProjxIO\Fluent\Method;
 
 class ArrayMaker extends Method
 {
-    public function __invoke($callbacks = [], $value)
+    public function __invoke($callbacks = [], $value, ... $params)
     {
         $array = [];
 
         foreach ($callbacks as $key => $callback) {
-            $args = array_slice(func_get_args(), 2);
+            $args = $params;
             array_unshift($args, $value, $key);
             $array[$key] = call_user_func_array($callback, $args);
         }

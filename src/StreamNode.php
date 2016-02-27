@@ -81,9 +81,9 @@ class StreamNode implements Stream, \ArrayAccess
     /**
      * @inheritDoc
      */
-    public function then(callable $callback)
+    public function then(callable $callback, ... $params)
     {
-        return $this->thenp($callback, array_slice(func_get_args(), 1));
+        return $this->thenp($callback, $params);
     }
 
     /**
@@ -97,17 +97,17 @@ class StreamNode implements Stream, \ArrayAccess
     /**
      * @inheritDoc
      */
-    public function __invoke()
+    public function __invoke(... $params)
     {
-        return $this->apply(func_get_args());
+        return $this->apply($params);
     }
 
     /**
      * @inheritDoc
      */
-    public function call($param1 = null, $param2 = null)
+    public function call(... $params)
     {
-        return $this->apply(func_get_args());
+        return $this->apply($params);
     }
 
     /**
@@ -156,31 +156,34 @@ class StreamNode implements Stream, \ArrayAccess
 
     /**
      * @param mixed $field
+     * @param array ...$params
      * @return Stream
      */
-    public function set(&$field)
+    public function set(&$field, ... $params)
     {
-        $args = array_merge([&$field], array_slice(func_get_args(), 1));
+        $args = array_merge([&$field], $params);
         return $this->callbackService->next($this, __FUNCTION__, $args);
     }
 
     /**
      * @param mixed $field
+     * @param array ...$params
      * @return Stream
      */
-    public function increment(&$field)
+    public function increment(&$field, ... $params)
     {
-        $args = array_merge([&$field], array_slice(func_get_args(), 1));
+        $args = array_merge([&$field], $params);
         return $this->callbackService->next($this, __FUNCTION__, $args);
     }
 
     /**
      * @param mixed $field
+     * @param array ...$params
      * @return Stream
      */
-    public function decrement(&$field)
+    public function decrement(&$field, ... $params)
     {
-        $args = array_merge([&$field], array_slice(func_get_args(), 1));
+        $args = array_merge([&$field], $params);
         return $this->callbackService->next($this, __FUNCTION__, $args);
     }
 }

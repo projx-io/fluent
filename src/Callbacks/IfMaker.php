@@ -6,12 +6,10 @@ use ProjxIO\Fluent\Method;
 
 class IfMaker extends Method
 {
-    public function __invoke($condition, $true, $false)
+    public function __invoke($condition, $true, $false, ... $params)
     {
-        $args = array_slice(func_get_args(), 3);
-
-        return call_user_func_array($condition, $args)
-            ? call_user_func_array($true, $args)
-            : call_user_func_array($false, $args);
+        return call_user_func_array($condition, $params)
+            ? call_user_func_array($true, $params)
+            : call_user_func_array($false, $params);
     }
 }

@@ -24,8 +24,8 @@ class BindArray
         $this->params = $params;
     }
 
-    public function __invoke()
+    public function __invoke(... $params)
     {
-        return call_user_func_array($this->callback, array_merge($this->params, func_get_args()));
+        return call_user_func_array($this->callback, array_merge($this->params, $params));
     }
 }

@@ -6,8 +6,8 @@ use ProjxIO\Fluent\Method;
 
 class Args extends Method
 {
-    public function __invoke()
+    public function __invoke(... $params)
     {
-        return func_get_args();
+        return $params;
     }
 }

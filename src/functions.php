@@ -5,34 +5,105 @@ use ProjxIO\Fluent\Stream;
 
 if (!function_exists('fluent')) {
     /**
-     * @param null $value
+     * @param array ...$params
      * @return Stream
      */
-    function fluent($value = null)
+    function fluent(... $params)
+    {
+        return rfluentp($params);
+    }
+}
+
+if (!function_exists('fluent')) {
+    /**
+     * @param array ...$params
+     * @return Stream
+     */
+    function fluent(... $params)
+    {
+        return rfluentp($params);
+    }
+}
+
+if (!function_exists('fluentp')) {
+    /**
+     * @param array $params
+     * @return Stream
+     */
+    function fluentp(array $params = [])
+    {
+        return rfluentp($params);
+    }
+}
+
+if (!function_exists('rfluent')) {
+    /**
+     * @param array ...$params
+     * @return Stream
+     */
+    function rfluent(&...$params)
+    {
+        return rfluentp($params);
+    }
+}
+
+if (!function_exists('rfluentp')) {
+    /**
+     * @param array $params
+     * @return Stream
+     */
+    function rfluentp(array &$params = [])
     {
         $stream = Fluent::stream();
 
-        if (func_num_args() > 0) {
-            $stream = $stream->thenp($stream->arg(), func_get_args());
+        if (count($params) > 0) {
+            $stream = $stream->thenp($stream->arg(), $params);
         }
 
         return $stream;
     }
 }
 
-if (!function_exists('F')) {
+if (!function_exists('f')) {
     /**
-     * @param null $value
+     * @param array ...$params
      * @return Stream
      */
-    function F($value = null)
+    function f(... $params)
     {
-        $stream = Fluent::stream();
+        return rfluentp($params);
+    }
+}
 
-        if (func_num_args() > 0) {
-            $stream = $stream->thenp($stream->arg(), func_get_args());
-        }
+if (!function_exists('fp')) {
+    /**
+     * @param array $params
+     * @return Stream
+     */
+    function fp(array $params = [])
+    {
+        return rfluentp($params);
+    }
+}
 
-        return $stream;
+if (!function_exists('rf')) {
+    /**
+     * @param array ...$params
+     * @return Stream
+     */
+    function rf(&... $params)
+    {
+        return rfluentp($params);
+    }
+}
+
+if (!function_exists('rfp')) {
+    /**
+     * @param array $params
+     * @return Stream
+     */
+    function rfp(array &$params = [])
+    {
+        return rfluentp($params);
     }
 }

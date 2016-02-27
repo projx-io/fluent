@@ -8,11 +8,10 @@ namespace ProjxIO\Fluent;
 interface Callback
 {
     /**
-     * @param null $param1
-     * @param null $param2
+     * @param array ...$params
      * @return mixed
      */
-    public function call($param1 = null, $param2 = null);
+    public function call(... $params);
 
     /**
      * @param array $params
