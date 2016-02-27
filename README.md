@@ -3,7 +3,7 @@
 
 ## Installation
 
-composer require projx-io/fluent
+`composer require projx-io/fluent`
 
 ## Hello World
 
