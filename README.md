@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/projx-io/fluent.svg)](https://travis-ci.org/projx-io/fluent)
+[![Build Status](https://travis-ci.org/projx-io/fluent.svg?branch=master)](https://travis-ci.org/projx-io/fluent?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/projx-io/fluent/badge.svg?branch=master)](https://coveralls.io/github/projx-io/fluent?branch=master)
 
 # Fluent
 
