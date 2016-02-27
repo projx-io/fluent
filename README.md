@@ -13,17 +13,10 @@ $greet = function ($greeting, $name) {
 };
 
 // prints "Hello, World!"
-echo Fluent::then($greet, 'Hello', 'World')
-    ->call();
+echo Fluent('World')->then($greet, 'Hello')         ->call();
+echo Fluent::         then($greet, 'Hello', 'World')->call();
+echo Fluent::         then($greet, 'Hello')         ->call('World');
+echo Fluent::         then($greet)                  ->call('Hello', 'World');
 
-echo Fluent::then($greet, 'Hello')
-    ->call('World');
-
-echo Fluent::then($greet)
-    ->call('Hello', 'World');
-
-echo Fluent::with('World')
-    ->then($greet, 'Hello')
-    ->call();
 ```
 
