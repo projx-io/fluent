@@ -14,17 +14,6 @@ if (!function_exists('fluent')) {
     }
 }
 
-if (!function_exists('fluent')) {
-    /**
-     * @param array ...$params
-     * @return Stream
-     */
-    function fluent(... $params)
-    {
-        return rfluentp($params);
-    }
-}
-
 if (!function_exists('fluentp')) {
     /**
      * @param array $params
