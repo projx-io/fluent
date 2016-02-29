@@ -18,6 +18,7 @@ use ProjxIO\Fluent\Callbacks\Each;
 use ProjxIO\Fluent\Callbacks\EqualTo;
 use ProjxIO\Fluent\Callbacks\Explode;
 use ProjxIO\Fluent\Callbacks\Filter;
+use ProjxIO\Fluent\Callbacks\Flatten;
 use ProjxIO\Fluent\Callbacks\Get;
 use ProjxIO\Fluent\Callbacks\GetElement;
 use ProjxIO\Fluent\Callbacks\GetField;
@@ -138,6 +139,7 @@ class Fluent implements StaticStream
             'length' => new BindCallbackFactory(new ConstantCallbackFactory(new Length())),
             'keyOf' => new BindCallbackFactory(new ConstantCallbackFactory(new KeyOf())),
             'valueOf' => new BindCallbackFactory(new ConstantCallbackFactory(new ValueOf())),
+            'flatten' => new BindCallbackFactory(new ConstantCallbackFactory(new Flatten())),
         ]);
     }
 
