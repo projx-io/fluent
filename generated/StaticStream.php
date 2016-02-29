@@ -45,11 +45,11 @@ namespace ProjxIO\Fluent;
  * @method static Stream times($a = null, $b = null)
  * @method static Stream dividedBy($a = null, $b = null)
  * @method static Stream get($keys = [], $value)
- * @method static Stream toArray($value = null)
- * @method static Stream toBoolean($value = null)
- * @method static Stream toInteger($value = null)
- * @method static Stream toObject($value = null)
- * @method static Stream toString($value = null)
+ * @method static Stream asArray($value = null)
+ * @method static Stream asBoolean($value = null)
+ * @method static Stream asInteger($value = null)
+ * @method static Stream asObject($value = null)
+ * @method static Stream asString($value = null)
  * @method static Stream has($keys = [], $value)
  * @method static Stream object($callbacks = [], $value)
  * @method static Stream array($callbacks = [], $value)
@@ -61,6 +61,11 @@ namespace ProjxIO\Fluent;
  * @method static Stream last(array $arrays = [])
  * @method static Stream front($count = 0, array $arrays = [])
  * @method static Stream back($count = 0, array $arrays = [])
+ * @method static string toString()
+ * @method static integer toInteger()
+ * @method static boolean toBoolean()
+ * @method static object toObject()
+ * @method static array toArray()
  */
 interface StaticStream
 {

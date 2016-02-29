@@ -34,6 +34,32 @@ class StreamNode implements Stream, \ArrayAccess
         $this->parent = $parent;
     }
 
+    public function toString()
+    {
+        return (string)$this->call();
+    }
+
+    public function toBoolean()
+    {
+        return (boolean)$this->call();
+    }
+
+    public function toInteger()
+    {
+        return (integer)$this->call();
+    }
+
+    public function toArray()
+    {
+        return (array)$this->call();
+    }
+
+    public function toObject()
+    {
+        return (object)$this->call();
+    }
+
+
     /**
      * @inheritDoc
      */

@@ -56,47 +56,47 @@ class BasicTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expect, $actual);
     }
 
-    public function testToString()
+    public function testAsString()
     {
         $value = 404;
         $expect = '404';
-        $actual = F($value)->toString()->call();
+        $actual = F($value)->asString()->call();
         $this->assertEquals($expect, $actual);
         $this->assertInternalType('string', $actual);
     }
 
-    public function testToInteger()
+    public function testAsInteger()
     {
         $value = '404';
         $expect = 404;
-        $actual = F($value)->toInteger()->call();
+        $actual = F($value)->asInteger()->call();
         $this->assertEquals($expect, $actual);
         $this->assertInternalType('integer', $actual);
     }
 
-    public function testToObject()
+    public function testAsObject()
     {
         $value = ['a' => 'b'];
         $expect = (object)$value;
-        $actual = F($value)->toObject()->call();
+        $actual = F($value)->asObject()->call();
         $this->assertEquals($expect, $actual);
         $this->assertInternalType('object', $actual);
     }
 
-    public function testToArray()
+    public function testAsArray()
     {
         $value = (object)['a' => 'b'];
         $expect = (array)$value;
-        $actual = F($value)->toArray()->call();
+        $actual = F($value)->asArray()->call();
         $this->assertEquals($expect, $actual);
         $this->assertInternalType('array', $actual);
     }
 
-    public function testToBoolean()
+    public function testAsBoolean()
     {
         $value = 5;
         $expect = true;
-        $actual = F($value)->toBoolean()->call();
+        $actual = F($value)->asBoolean()->call();
         $this->assertEquals($expect, $actual);
         $this->assertInternalType('boolean', $actual);
     }

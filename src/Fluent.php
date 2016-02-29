@@ -53,11 +53,11 @@ use ProjxIO\Fluent\Callbacks\Reverse;
 use ProjxIO\Fluent\Callbacks\Sort;
 use ProjxIO\Fluent\Callbacks\SwitchCase;
 use ProjxIO\Fluent\Callbacks\Times;
-use ProjxIO\Fluent\Callbacks\ToArray;
-use ProjxIO\Fluent\Callbacks\ToBoolean;
-use ProjxIO\Fluent\Callbacks\ToInteger;
-use ProjxIO\Fluent\Callbacks\ToObject;
-use ProjxIO\Fluent\Callbacks\ToString;
+use ProjxIO\Fluent\Callbacks\AsArray;
+use ProjxIO\Fluent\Callbacks\AsBoolean;
+use ProjxIO\Fluent\Callbacks\AsInteger;
+use ProjxIO\Fluent\Callbacks\AsObject;
+use ProjxIO\Fluent\Callbacks\AsString;
 use ProjxIO\Fluent\Callbacks\Union;
 use ProjxIO\Fluent\Callbacks\Unique;
 use ProjxIO\Fluent\Callbacks\Value;
@@ -188,11 +188,11 @@ class Fluent implements StaticStream
             'with' => new BindCallbackFactory(new ConstantCallbackFactory(new With())),
             'arg' => new BindCallbackFactory(new ConstantCallbackFactory(new Arg())),
             'args' => new BindCallbackFactory(new ConstantCallbackFactory(new Args())),
-            'toArray' => new BindCallbackFactory(new ConstantCallbackFactory(new ToArray())),
-            'toBoolean' => new BindCallbackFactory(new ConstantCallbackFactory(new ToBoolean())),
-            'toInteger' => new BindCallbackFactory(new ConstantCallbackFactory(new ToInteger())),
-            'toObject' => new BindCallbackFactory(new ConstantCallbackFactory(new ToObject())),
-            'toString' => new BindCallbackFactory(new ConstantCallbackFactory(new ToString())),
+            'asArray' => new BindCallbackFactory(new ConstantCallbackFactory(new AsArray())),
+            'asBoolean' => new BindCallbackFactory(new ConstantCallbackFactory(new AsBoolean())),
+            'asInteger' => new BindCallbackFactory(new ConstantCallbackFactory(new AsInteger())),
+            'asObject' => new BindCallbackFactory(new ConstantCallbackFactory(new AsObject())),
+            'asString' => new BindCallbackFactory(new ConstantCallbackFactory(new AsString())),
             'has' => new BindCallbackFactory(new ConstantCallbackFactory(new Has())),
             'get' => new BindCallbackFactory(new ConstantCallbackFactory(new Get())),
             'getField' => new BindCallbackFactory(new ConstantCallbackFactory(new GetField())),

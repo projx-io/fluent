@@ -44,11 +44,11 @@ namespace ProjxIO\Fluent;
  * @method Stream minus($a = null, $b = null)
  * @method Stream times($a = null, $b = null)
  * @method Stream dividedBy($a = null, $b = null)
- * @method Stream toArray($value = null)
- * @method Stream toBoolean($value = null)
- * @method Stream toInteger($value = null)
- * @method Stream toObject($value = null)
- * @method Stream toString($value = null)
+ * @method Stream asArray($value = null)
+ * @method Stream asBoolean($value = null)
+ * @method Stream asInteger($value = null)
+ * @method Stream asObject($value = null)
+ * @method Stream asString($value = null)
  * @method Stream has($keys = [], $value)
  * @method Stream get($keys = [], $value)
  * @method Stream object($callbacks = [], $value)
@@ -61,7 +61,11 @@ namespace ProjxIO\Fluent;
  * @method Stream last(array $arrays = [])
  * @method Stream front($count = 0, array $arrays = [])
  * @method Stream back($count = 0, array $arrays = [])
- *
+ * @method string toString()
+ * @method integer toInteger()
+ * @method boolean toBoolean()
+ * @method object toObject()
+ * @method array toArray()
  */
 interface StreamInstance
 {

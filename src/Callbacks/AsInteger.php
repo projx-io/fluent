@@ -4,10 +4,10 @@ namespace ProjxIO\Fluent\Callbacks;
 
 use ProjxIO\Fluent\Method;
 
-class ToBoolean extends Method
+class AsInteger extends Method
 {
     public function __invoke($value)
     {
-        return (boolean)$value;
+        return (integer)$value;
     }
 }
