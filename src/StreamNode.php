@@ -2,9 +2,11 @@
 
 namespace ProjxIO\Fluent;
 
+use ArrayAccess;
+use JsonSerializable;
 use ProjxIO\Fluent\Callbacks\BindArray;
 
-class StreamNode implements Stream, \ArrayAccess
+class StreamNode implements Stream, ArrayAccess, JsonSerializable
 {
     /**
      * @var CallbackService
@@ -59,6 +61,10 @@ class StreamNode implements Stream, \ArrayAccess
         return (object)$this->call();
     }
 
+    public function jsonSerialize()
+    {
+        return $this->call();
+    }
 
     /**
      * @inheritDoc
