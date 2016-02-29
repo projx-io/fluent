@@ -128,3 +128,7 @@ Fluent::registerMethods([
 
 Fluent::then(...)->someMethod($a, $b);
 ```
+
+## List of methods
+
+A list of methods can be found in the [Fluent](https://github.com/projx-io/fluent/blob/master/src/Fluent.php) class.
