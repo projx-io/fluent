@@ -10,6 +10,7 @@ use ProjxIO\Fluent\Callbacks\ArrayMaker;
 use ProjxIO\Fluent\Callbacks\Assert;
 use ProjxIO\Fluent\Callbacks\AtLeast;
 use ProjxIO\Fluent\Callbacks\AtMost;
+use ProjxIO\Fluent\Callbacks\Back;
 use ProjxIO\Fluent\Callbacks\ComparedTo;
 use ProjxIO\Fluent\Callbacks\Decrement;
 use ProjxIO\Fluent\Callbacks\Diff;
@@ -18,7 +19,9 @@ use ProjxIO\Fluent\Callbacks\Each;
 use ProjxIO\Fluent\Callbacks\EqualTo;
 use ProjxIO\Fluent\Callbacks\Explode;
 use ProjxIO\Fluent\Callbacks\Filter;
+use ProjxIO\Fluent\Callbacks\First;
 use ProjxIO\Fluent\Callbacks\Flatten;
+use ProjxIO\Fluent\Callbacks\Front;
 use ProjxIO\Fluent\Callbacks\Get;
 use ProjxIO\Fluent\Callbacks\GetElement;
 use ProjxIO\Fluent\Callbacks\GetField;
@@ -32,6 +35,7 @@ use ProjxIO\Fluent\Callbacks\Intersect;
 use ProjxIO\Fluent\Callbacks\Key;
 use ProjxIO\Fluent\Callbacks\KeyOf;
 use ProjxIO\Fluent\Callbacks\Keys;
+use ProjxIO\Fluent\Callbacks\Last;
 use ProjxIO\Fluent\Callbacks\Length;
 use ProjxIO\Fluent\Callbacks\LessThan;
 use ProjxIO\Fluent\Callbacks\Map;
@@ -140,6 +144,10 @@ class Fluent implements StaticStream
             'keyOf' => new BindCallbackFactory(new ConstantCallbackFactory(new KeyOf())),
             'valueOf' => new BindCallbackFactory(new ConstantCallbackFactory(new ValueOf())),
             'flatten' => new BindCallbackFactory(new ConstantCallbackFactory(new Flatten())),
+            'front' => new BindCallbackFactory(new ConstantCallbackFactory(new Front())),
+            'back' => new BindCallbackFactory(new ConstantCallbackFactory(new Back())),
+            'first' => new BindCallbackFactory(new ConstantCallbackFactory(new First())),
+            'last' => new BindCallbackFactory(new ConstantCallbackFactory(new Last())),
         ]);
     }
 

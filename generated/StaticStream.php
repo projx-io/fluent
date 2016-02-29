@@ -57,6 +57,10 @@ namespace ProjxIO\Fluent;
  * @method static Stream if (callable $condition, callable $true, callable $false)
  * @method static Stream regex($pattern = null, $subject = null)
  * @method static Stream flatten(array $arrays = [])
+ * @method static Stream first(array $arrays = [])
+ * @method static Stream last(array $arrays = [])
+ * @method static Stream front($count = 0, array $arrays = [])
+ * @method static Stream back($count = 0, array $arrays = [])
  */
 interface StaticStream
 {

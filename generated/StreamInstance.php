@@ -57,6 +57,10 @@ namespace ProjxIO\Fluent;
  * @method Stream if (callable $condition, callable $true, callable $false)
  * @method Stream regex($pattern = null, $subject = null)
  * @method Stream flatten(array $arrays = [])
+ * @method Stream first(array $arrays = [])
+ * @method Stream last(array $arrays = [])
+ * @method Stream front($count = 0, array $arrays = [])
+ * @method Stream back($count = 0, array $arrays = [])
  *
  */
 interface StreamInstance
