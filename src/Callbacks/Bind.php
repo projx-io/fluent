@@ -4,8 +4,8 @@ namespace ProjxIO\Fluent\Callbacks;
 
 class Bind extends BindArray
 {
-    public function __construct(callable $callback, ... $params)
+    public function __construct(callable $callback)
     {
-        parent::__construct($callback, $params);
+        parent::__construct($callback, array_slice(func_get_args(), 1));
     }
 }

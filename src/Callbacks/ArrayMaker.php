@@ -6,10 +6,10 @@ use ProjxIO\Fluent\Method;
 
 class ArrayMaker extends Method
 {
-    public function __invoke($callbacks = [], $value, ... $params)
+    public function __invoke($callbacks = [], $value)
     {
         $array = [];
-
+        $params = array_slice(func_get_args(), 2);
         foreach ($callbacks as $key => $callback) {
             $args = $params;
             array_unshift($args, $value, $key);

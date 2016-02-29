@@ -202,9 +202,9 @@ class StreamNode implements Stream, ArrayAccess, JsonSerializable
      * @param array ...$params
      * @return Stream
      */
-    public function increment(&$field, ... $params)
+    public function increment(&$field)
     {
-        $args = array_merge([&$field], $params);
+        $args = array_merge([&$field], array_slice(func_get_args(), 1));
         return $this->callbackService->next($this, __FUNCTION__, $args);
     }
 
@@ -213,9 +213,9 @@ class StreamNode implements Stream, ArrayAccess, JsonSerializable
      * @param array ...$params
      * @return Stream
      */
-    public function decrement(&$field, ... $params)
+    public function decrement(&$field)
     {
-        $args = array_merge([&$field], $params);
+        $args = array_merge([&$field], array_slice(func_get_args(), 1));
         return $this->callbackService->next($this, __FUNCTION__, $args);
     }
 }

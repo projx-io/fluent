@@ -8,6 +8,6 @@ class Diff extends Method
 {
     public function __invoke(... $params)
     {
-        return call_user_func_array('array_diff', array_reverse($params));
+        return call_user_func_array('array_diff', array_reverse(func_get_args()));
     }
 }

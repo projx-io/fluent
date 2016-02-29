@@ -256,12 +256,11 @@ class Fluent implements StaticStream
 
     /**
      * @param callable $callback
-     * @param array ...$params
      * @return Stream
      */
-    public static function then(callable $callback, ... $params)
+    public static function then(callable $callback)
     {
-        return self::thenp($callback, $params);
+        return self::thenp($callback, func_get_args());
     }
 
     /**

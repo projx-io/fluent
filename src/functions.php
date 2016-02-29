@@ -5,11 +5,11 @@ use ProjxIO\Fluent\Stream;
 
 if (!function_exists('fluent')) {
     /**
-     * @param array ...$params
      * @return Stream
      */
-    function fluent(... $params)
+    function fluent()
     {
+        $params = func_get_args();
         return rfluentp($params);
     }
 }
@@ -56,11 +56,11 @@ if (!function_exists('rfluentp')) {
 
 if (!function_exists('f')) {
     /**
-     * @param array ...$params
      * @return Stream
      */
-    function f(... $params)
+    function f()
     {
+        $params = func_get_args();
         return rfluentp($params);
     }
 }
